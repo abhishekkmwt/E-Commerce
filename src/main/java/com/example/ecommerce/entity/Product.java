@@ -33,7 +33,7 @@ public class Product {
     @JoinColumn
     Seller seller;
 
-    @OneToOne(mappedBy = "item",cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "product",cascade = CascadeType.ALL)
     Item item;
 
 }
