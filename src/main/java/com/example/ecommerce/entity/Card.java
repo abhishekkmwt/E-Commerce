@@ -4,6 +4,7 @@ import com.example.ecommerce.Enums.CardType;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Date;
 
@@ -30,6 +31,9 @@ public class Card {
 
     @Enumerated(EnumType.STRING)
     CardType cardType;
+
+    @CreationTimestamp
+    Date date;
 
     @ManyToOne
     @JoinColumn
