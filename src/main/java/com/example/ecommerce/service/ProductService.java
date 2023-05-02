@@ -33,4 +33,6 @@ public interface ProductService {
     public ProductResponse getCheapestProductInParticularCategory(ProductCategory productCategory);
 
     public ProductResponse getCostliestProductInParticularCategory(ProductCategory productCategory);
+
+    public List<ProductResponse> getAllProducts(int price,String productCategory);
 }

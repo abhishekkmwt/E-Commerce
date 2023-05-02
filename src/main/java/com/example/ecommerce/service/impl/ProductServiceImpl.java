@@ -197,4 +197,16 @@ public class ProductServiceImpl implements ProductService {
         return productResponse;
     }
 
+    @Override
+    public List<ProductResponse> getAllProducts(int price, String productCategory) {
+        List<Product> productList = productRepository.getAllProducts(price, productCategory);
+        List<ProductResponse> productResponseList =new ArrayList<>();
+        for(Product product : productList){
+            ProductResponse productResponse =ProductTransformer.productToProductResponse(product);
+            productResponseList.add(productResponse);
+        }
+        return productResponseList;
+    }
+
+
 }

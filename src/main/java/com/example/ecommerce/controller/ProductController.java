@@ -5,6 +5,7 @@ import com.example.ecommerce.dtos.requestDto.ProductRequest;
 import com.example.ecommerce.dtos.requestDto.SellerEmailRequest;
 import com.example.ecommerce.dtos.requestDto.SellerIdAndProductIdRequest;
 import com.example.ecommerce.dtos.responseDto.ProductResponse;
+import com.example.ecommerce.entity.Product;
 import com.example.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -88,4 +89,10 @@ public class ProductController {
     public ResponseEntity getCostliestProductInParticularCategory(@PathVariable("category") ProductCategory category){
         return new ResponseEntity(productService.getCostliestProductInParticularCategory(category),HttpStatus.CREATED);
     }
+
+    @GetMapping("/get-All-Products/{price}/{category}")
+    public ResponseEntity getAllProducts(@PathVariable("price") Integer price,@PathVariable("category") String category){
+        return  new ResponseEntity(productService.getAllProducts(price,category),HttpStatus.CREATED);
+    }
+
 }

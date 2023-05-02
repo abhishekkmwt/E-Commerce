@@ -119,10 +119,19 @@ public class SellerServiceImpl implements SellerService {
         catch(Exception e){
             throw new SellerNotFoundException("Seller Does Not Exists!!");
         }
+        if(sellerUpdateRequest.getMobNo() == null){}
+        else{
+            seller.setMobNo(sellerUpdateRequest.getMobNo());
+        }
+        if(sellerUpdateRequest.getAge() == 0){}
+        else{
+            seller.setAge(sellerUpdateRequest.getAge());
+        }
+        if(sellerUpdateRequest.getName() == null){}
+        else{
+            seller.setMobNo(sellerUpdateRequest.getName());
+        }
         seller.setEmailId(sellerUpdateRequest.getEmailId());
-        seller.setAge(sellerUpdateRequest.getAge());
-        seller.setName(sellerUpdateRequest.getName());
-        seller.setMobNo(sellerUpdateRequest.getMobNo());
         sellerRepository.save(seller);
         SellerUpdateResponse sellerUpdateResponse = SellerTransformer.sellerToSellerUpdateResponse(seller);
         return sellerUpdateResponse;
