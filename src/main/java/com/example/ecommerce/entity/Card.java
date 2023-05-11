@@ -32,9 +32,6 @@ public class Card {
     @Enumerated(EnumType.STRING)
     CardType cardType;
 
-    @CreationTimestamp
-    Date date;
-
     @ManyToOne
     @JoinColumn
     Customer customer;

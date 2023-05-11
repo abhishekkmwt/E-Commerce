@@ -14,12 +14,5 @@ public class CartTransformer {
                 .build();
     }
 
-    public static ItemResponse itemToItemResponse(Item item){
-        return ItemResponse.builder()
-                .productName(item.getProduct().getName())
-                .quantity(item.getRequiredQuantity())
-                .totalItemsCost(item.getProduct().getPrice()*item.getRequiredQuantity())
-                .singleItemCost(item.getProduct().getPrice())
-                .build();
-    }
+
 }

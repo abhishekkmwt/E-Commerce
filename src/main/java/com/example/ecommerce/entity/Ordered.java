@@ -1,10 +1,7 @@
 package com.example.ecommerce.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -18,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name="ordered")
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
 public class Ordered {
 
     @Id
@@ -34,7 +32,7 @@ public class Ordered {
     String cardUsed;
 
     @OneToMany(mappedBy = "ordered", cascade = CascadeType.ALL)
-    List<Item> itemList=new ArrayList<>();
+    List<Item> itemList = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn

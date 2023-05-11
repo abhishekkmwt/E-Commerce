@@ -17,10 +17,10 @@ public interface CardRepository extends JpaRepository<Card,Integer> {
     @Query(value = "select * from Card c where c.card_type = :cardType",nativeQuery = true)
     List<Card> getAllParticularCard(String cardType);
 
-   @Query(value = "select * from Card c where c.expiry_date >= c.date",nativeQuery = true)
+   @Query(value = "select * from Card c where c.expiry_date >= CURDATE()",nativeQuery = true)
     List<Card> getAllNonExpiredCards();
 
-    @Query(value = "select * from Card c where c.expiry_date <= c.date",nativeQuery = true)
+    @Query(value = "select * from Card c where c.expiry_date <= CURDATE()",nativeQuery = true)
     List<Card> getAllExpiredCards();
 
 }
